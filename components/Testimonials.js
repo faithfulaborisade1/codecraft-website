@@ -1,12 +1,12 @@
 export default function Testimonials() {
   const testimonials = [
-   {
-    name: "Sarah Johnson",
-    company: "TechStart Inc.",
-    role: "CEO",
-    content: "CodeCraft delivered our e-commerce platform ahead of schedule and under budget. The ongoing maintenance has been flawless - our site has never been down. Highly recommended!",
-    rating: 5
-  },
+    {
+      name: "Sarah Johnson",
+      company: "TechStart Inc.",
+      role: "CEO",
+      content: "CodeCraft delivered our e-commerce platform ahead of schedule and under budget. The ongoing maintenance has been flawless - our site has never been down. Highly recommended!",
+      rating: 5
+    },
     {
       name: "Mike Chen", 
       company: "Local Restaurant Group",
@@ -18,7 +18,7 @@ export default function Testimonials() {
       name: "Jennifer Davis",
       company: "Davis Consulting",
       role: "Founder",
-      content: "Professional, responsive, and delivers exactly what's promised. The website redesign brought in 50% more leads in the first month. The maintenance plan gives me complete peace of mind.",
+      content: "Professional, responsive, and delivers exactly what&apos;s promised. The website redesign brought in 50% more leads in the first month. The maintenance plan gives me complete peace of mind.",
       rating: 5
     }
   ]
@@ -29,7 +29,7 @@ export default function Testimonials() {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">What Clients Say</h2>
           <p className="text-xl text-gray-600">
-            Don't just take our word for it - hear from satisfied clients
+            Don&apos;t just take our word for it - hear from satisfied clients
           </p>
         </div>
         
@@ -43,7 +43,7 @@ export default function Testimonials() {
               </div>
               
               <p className="text-gray-700 mb-6 leading-relaxed italic">
-                "{testimonial.content}"
+                &quot;{testimonial.content}&quot;
               </p>
               
               <div className="border-t pt-4">
