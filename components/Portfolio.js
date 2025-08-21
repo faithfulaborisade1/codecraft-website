@@ -56,7 +56,7 @@ export default function Portfolio() {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Recent Projects</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Here's a glimpse of the quality work delivered for clients across different industries
+            Here&apos;s a glimpse of the quality work delivered for clients across different industries
           </p>
         </div>
         

@@ -1,12 +1,12 @@
 export default function Testimonials() {
   const testimonials = [
-    {
-      name: "Sarah Johnson",
-      company: "TechStart Inc.",
-      role: "CEO",
-      content: "CodeCraft delivered our e-commerce platform ahead of schedule and under budget. The ongoing maintenance has been flawless - our site has never been down. Highly recommended!",
-      rating: 5
-    },
+   {
+    name: "Sarah Johnson",
+    company: "TechStart Inc.",
+    role: "CEO",
+    content: "CodeCraft delivered our e-commerce platform ahead of schedule and under budget. The ongoing maintenance has been flawless - our site has never been down. Highly recommended!",
+    rating: 5
+  },
     {
       name: "Mike Chen", 
       company: "Local Restaurant Group",
