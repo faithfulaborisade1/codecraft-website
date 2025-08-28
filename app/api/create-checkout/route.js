@@ -1,10 +1,6 @@
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2023-10-16',
-})
-
 export async function POST(request) {
   try {
     const { priceId, mode, successUrl, cancelUrl } = await request.json()
@@ -22,6 +18,10 @@ export async function POST(request) {
         { status: 503 }
       )
     }
+
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: '2023-10-16',
+    })
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
