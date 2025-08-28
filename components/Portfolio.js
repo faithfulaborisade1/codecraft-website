@@ -20,17 +20,17 @@ export default function Portfolio() {
       title: "Corporate Website",
       category: "Website",
       description: "Professional business website with CMS, SEO optimization, and lead generation forms.",
-      image: "🏢",
+      image: "/website.png",
       technologies: ["Next.js", "Tailwind", "CMS", "SEO"],
-      link: "#"
+      link: "https://irishautomarket.ie"
     },
     {
       title: "Analytics Dashboard",
       category: "Web Application",
       description: "Custom dashboard for tracking business KPIs with real-time data visualization.",
-      image: "📊",
+      image: "/analytics.png",
       technologies: ["React", "D3.js", "API Integration"],
-      link: "#"
+      link: null
     },
     {
       title: "Fitness Tracker App",
@@ -63,8 +63,16 @@ export default function Portfolio() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div key={index} className="bg-gray-50 rounded-2xl overflow-hidden card-hover">
-              <div className="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-6xl">
-                {project.image}
+              <div className="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-6xl relative">
+                {project.image.startsWith('/') ? (
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover absolute inset-0"
+                  />
+                ) : (
+                  project.image
+                )}
               </div>
               
               <div className="p-6">
@@ -80,12 +88,14 @@ export default function Portfolio() {
                   ))}
                 </div>
                 
-                <a 
-                  href={project.link}
-                  className="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700 transition-colors"
-                >
-                  View Project →
-                </a>
+                {project.link && (
+                  <a 
+                    href={project.link}
+                    className="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700 transition-colors"
+                  >
+                    View Project →
+                  </a>
+                )}
               </div>
             </div>
           ))}
