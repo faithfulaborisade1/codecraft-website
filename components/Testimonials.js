@@ -8,10 +8,10 @@ export default function Testimonials() {
       rating: 5
     },
     {
-      name: "Mike Chen", 
-      company: "Local Restaurant Group",
-      role: "Operations Manager",
-      content: "The mobile app CodeCraft built for us increased our online orders by 300%. The cross-platform approach meant we could reach both iOS and Android customers immediately.",
+      name: "Brian Johnson",
+      company: "Irish Auto Market",
+      role: "Managing Director", 
+      content: "CodeCraft built our comprehensive car marketplace website from the ground up. The platform handles listings, search functionality, and user management flawlessly. Their attention to detail and professional approach exceeded our expectations. The site has transformed our business operations.",
       rating: 5
     },
     {

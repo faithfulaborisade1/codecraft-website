@@ -135,7 +135,19 @@ export default function ProjectPricing() {
                 ))}
               </ul>
               
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
+                <p className="text-sm text-blue-800 text-center">
+                  💡 <strong>Recommended:</strong> Schedule a free consultation call before payment to discuss your specific needs and ensure this package is perfect for you.
+                </p>
+              </div>
+
               <div className="space-y-2">
+                <a 
+                  href="#contact"
+                  className="btn-secondary w-full text-center inline-block mb-2"
+                >
+                  Schedule Free Consultation
+                </a>
                 <button 
                   className={`btn-primary w-full ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
                   onClick={() => handlePayment(project.priceId, project.name)}

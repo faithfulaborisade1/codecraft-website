@@ -1,22 +1,6 @@
 export default function Portfolio() {
   const projects = [
     {
-      title: "E-commerce Platform",
-      category: "Web Application", 
-      description: "Full-featured online store with payment processing, inventory management, and admin dashboard.",
-      image: "🛒",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      link: "#"
-    },
-    {
-      title: "Restaurant Mobile App",
-      category: "Mobile App",
-      description: "iOS and Android app for food ordering with real-time tracking and push notifications.",
-      image: "🍕",
-      technologies: ["React Native", "Firebase", "Push Notifications"],
-      link: "#"
-    },
-    {
       title: "Corporate Website",
       category: "Website",
       description: "Professional business website with CMS, SEO optimization, and lead generation forms.",
@@ -31,22 +15,6 @@ export default function Portfolio() {
       image: "/analytics.png",
       technologies: ["React", "D3.js", "API Integration"],
       link: null
-    },
-    {
-      title: "Fitness Tracker App",
-      category: "Mobile App", 
-      description: "Cross-platform fitness app with workout tracking and social features.",
-      image: "💪",
-      technologies: ["Flutter", "Firebase", "Health APIs"],
-      link: "#"
-    },
-    {
-      title: "SaaS Platform",
-      category: "Web Application",
-      description: "Multi-tenant SaaS platform with subscription billing and user management.",
-      image: "⚡",
-      technologies: ["Next.js", "Prisma", "Stripe", "Auth"],
-      link: "#"
     }
   ]
 

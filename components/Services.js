@@ -1,3 +1,5 @@
+'use client'
+
 export default function Services() {
   const services = [
     {
@@ -38,6 +40,16 @@ export default function Services() {
     }
   ]
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      contactSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  }
+
   return (
     <section id="services" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,7 +73,10 @@ export default function Services() {
                 ))}
               </ul>
               
-              <button className="btn-primary w-full">
+              <button 
+                className="btn-primary w-full"
+                onClick={scrollToContact}
+              >
                 Get Quote
               </button>
             </div>
