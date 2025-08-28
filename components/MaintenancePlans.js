@@ -1,8 +1,15 @@
+'use client'
+
+import { useState } from 'react'
+
 export default function MaintenancePlans() {
+  const [loading, setLoading] = useState(false)
+
   const plans = [
     {
       name: "Essential Care",
-      price: 49,
+      price: 25,
+      priceId: "price_1S13NOHBKAenl9nMYEfFW9EZ", // Replace with actual Stripe price ID
       description: "Perfect for small websites that need basic protection and updates",
       features: [
         "Security updates & patches",
@@ -16,7 +23,8 @@ export default function MaintenancePlans() {
     },
     {
       name: "Professional",
-      price: 99,
+      price: 49,
+      priceId: "price_1S13O1HBKAenl9nMPURGOWmg", // Replace with actual Stripe price ID
       description: "Ideal for business websites with regular content updates",
       features: [
         "Everything in Essential Care",
@@ -32,7 +40,8 @@ export default function MaintenancePlans() {
     },
     {
       name: "Enterprise", 
-      price: 199,
+      price: 99,
+      priceId: "price_1S13OaHBKAenl9nM0rgMOvA0", // Replace with actual Stripe price ID
       description: "Complete peace of mind for mission-critical applications",
       features: [
         "Everything in Professional",
@@ -47,6 +56,38 @@ export default function MaintenancePlans() {
       buttonStyle: "btn-primary"
     }
   ]
+
+  const handleSubscribe = async (priceId, planName) => {
+    setLoading(true)
+    
+    try {
+      const response = await fetch('/api/create-checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          priceId: priceId,
+          mode: 'subscription',
+          successUrl: `${window.location.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+          cancelUrl: `${window.location.origin}/#maintenance`
+        }),
+      })
+
+      const { url } = await response.json()
+      
+      if (url) {
+        window.location.href = url
+      } else {
+        throw new Error('No checkout URL received')
+      }
+    } catch (error) {
+      console.error('Error:', error)
+      alert('Payment failed. Please try again or contact support.')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <section id="maintenance" className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -71,7 +112,7 @@ export default function MaintenancePlans() {
               
               <div className="text-center mb-6">
                 <div className="text-4xl font-bold text-gray-900 mb-2">
-                  <span className="text-2xl">$</span>{plan.price}<span className="text-lg text-gray-600">/month</span>
+                  <span className="text-2xl">€</span>{plan.price}<span className="text-lg text-gray-600">/month</span>
                 </div>
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                 <p className="text-gray-600">{plan.description}</p>
@@ -86,9 +127,18 @@ export default function MaintenancePlans() {
                 ))}
               </ul>
               
-              <button className={`${plan.buttonStyle} w-full`}>
-                {plan.popular ? 'Most Popular' : 'Get Started'}
-              </button>
+              <div className="space-y-2">
+                <button 
+                  className={`${plan.buttonStyle} w-full ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  onClick={() => handleSubscribe(plan.priceId, plan.name)}
+                  disabled={loading}
+                >
+                  {loading ? 'Processing...' : `Subscribe - €${plan.price}/month`}
+                </button>
+                <p className="text-xs text-gray-500 text-center mt-2">
+                  Secure payment with Stripe. Cancel anytime.
+                </p>
+              </div>
             </div>
           ))}
         </div>

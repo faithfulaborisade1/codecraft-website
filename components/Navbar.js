@@ -7,6 +7,7 @@ export default function Navbar() {
           <div className="flex space-x-6">
             <a href="#home" className="text-gray-700 hover:text-indigo-600">Home</a>
             <a href="#services" className="text-gray-700 hover:text-indigo-600">Services</a>
+            <a href="#pricing" className="text-gray-700 hover:text-indigo-600">Pricing</a>
             <a href="#portfolio" className="text-gray-700 hover:text-indigo-600">Portfolio</a>
             <a href="#maintenance" className="text-gray-700 hover:text-indigo-600">Maintenance</a>
             <a href="#contact" className="text-gray-700 hover:text-indigo-600">Contact</a>
